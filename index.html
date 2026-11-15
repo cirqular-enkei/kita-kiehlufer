@@ -504,6 +504,15 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
   .hero .cta{gap:10px;margin-top:30px;flex-wrap:nowrap}.hero .cta .btn{padding-inline:18px;font-size:15px;white-space:nowrap}
   .hero .copy p{margin-top:20px}.facts{margin-top:32px}
 }
+.facts.below{display:none}
+@media (max-width:900px){
+  .hero .copy .facts{display:none}
+  .facts.below{display:grid;order:3;border-top:0;margin:0;padding:26px 24px 44px}
+  .hero .pic{border-radius:28px}
+  .hero.v3 .photo3{margin-bottom:30px}
+  .hero.v3 .facts.below{padding-top:14px}
+}
+@media (max-width:600px){.facts.below{padding:22px 20px 36px}.hero .pic{border-radius:22px}}
 </style>
 </head>
 <body>
@@ -570,6 +579,12 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
       <span class="tag" data-i18n="tag.ai">KI-Visualisierung</span>
       <div class="hero-dots" role="group" aria-label="Hero-Variante wählen"><button type="button" class="hn-dot on" data-slide="0" aria-label="Hero 1: Vorlesen" aria-pressed="true"></button><button type="button" class="hn-dot" data-slide="1" aria-label="Hero 2: Unser Haus" aria-pressed="false"></button><button type="button" class="hn-dot" data-slide="2" aria-label="Hero 3: Ohne Welle" aria-pressed="false"></button></div>
     </figure>
+    <ul class="facts below">
+      <li><i style="background:var(--coral)"></i><b>188</b> <span data-i18n="f.kids">Kinder</span></li>
+      <li><i style="background:#3A5FCD"></i><b>16</b> <span data-i18n="c.rooms">Gruppenräume</span></li>
+      <li><i style="background:#2E9B63"></i><b>3</b> <span data-i18n="c.floors">Etagen</span></li>
+      <li><i style="background:#F5A8C8"></i><b>0–6</b> <span data-i18n="f.age">Jahre</span></li>
+    </ul>
   </div>
 </section>
 <section id="kita" class="center">
