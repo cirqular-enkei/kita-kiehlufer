@@ -454,6 +454,56 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
   footer .cols{grid-template-columns:1fr}
   .cards{gap:40px}
 }
+
+/* calm hero (Nov 15): facts line, dots on the photo, hero 3 = clean split */
+.hero .copy{padding-bottom:110px}
+.hero-rb{width:clamp(150px,15vw,210px);right:-50px;bottom:-60px}
+.facts{list-style:none;display:flex;flex-wrap:wrap;gap:12px 26px;margin:54px 0 0;padding:26px 0 0;border-top:1.5px solid rgba(47,43,43,.12);font-size:17px;font-weight:400;position:relative;z-index:2}
+.facts li{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.facts b{font:600 22px var(--display);letter-spacing:-.5px}
+.facts i{width:12px;height:12px;border-radius:2px;rotate:-8deg;flex:none}
+.facts li:nth-child(even) i{rotate:7deg}
+.hero .pic .tag{left:24px;top:110px;bottom:auto}
+.hero-dots{position:absolute;left:18px;bottom:18px;z-index:5;display:flex;align-items:center;background:rgba(47,43,43,.32);border-radius:20px;padding:0 6px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hn-dot{width:26px;height:32px;border:0;background:none;border-radius:0;rotate:none;scale:none;padding:0;cursor:pointer;display:grid;place-items:center;transition:width .3s ease}
+.hn-dot:nth-of-type(odd){rotate:none}
+.hn-dot::before{content:"";width:10px;height:10px;border-radius:6px;background:rgba(255,255,255,.6);transition:all .3s ease}
+.hn-dot:hover{background:none}.hn-dot:hover::before{background:#fff}
+.hn-dot.on{background:none;scale:none;rotate:none;width:40px}
+.hn-dot.on::before{width:26px;background:#fff}
+.hn-dot:focus-visible{outline:2px solid #fff;outline-offset:-4px;border-radius:10px}
+.photo3{display:none;position:relative;align-self:center;margin:110px clamp(30px,5vw,80px) 60px 10px}
+.photo3 img{position:relative;display:block;width:100%;height:auto;aspect-ratio:5/4.6;object-fit:cover;object-position:60% 35%;border-radius:28px}
+.photo3 .ps{position:absolute;display:block}
+.photo3 .ps1{right:-26px;top:-26px;width:38%;aspect-ratio:1;background:var(--mustard);border-radius:6px;rotate:5deg}
+.photo3 .ps2{left:-22px;bottom:-22px;width:22%;aspect-ratio:1;background:var(--teal);border-radius:5px;rotate:-6deg}
+.photo3 .tag{position:absolute;left:18px;top:18px;z-index:3}
+.photo3 .hero-dots{left:auto;right:18px}
+.hero.v3 .grid{grid-template-columns:48% 52%}
+.hero.v3 .photo3{display:block}
+.hero.v3 .copy{padding-left:max(clamp(30px,6.5vw,100px),env(safe-area-inset-left,0px));padding-right:30px}
+.hero.v3 .copy>.sq{display:none}
+@media (max-width:900px){
+  .hero .copy{padding:118px 24px 44px}
+  .hero-rb{display:none}
+  .facts{margin-top:40px;padding-top:22px;display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;gap:12px}
+  .hero .pic{height:clamp(300px,58vw,500px);margin-inline:24px;border-radius:28px 28px 0 0}
+  .hero .pic .tag{top:16px;left:16px}
+  .hero.v3 .grid{grid-template-columns:1fr}
+  .hero.v3 .copy{padding:118px 24px 44px}
+  .photo3{margin:6px 42px 64px 40px}
+  .photo3 img{aspect-ratio:16/10.5}
+  .photo3 .ps1{right:-18px;top:-18px;width:30%}.photo3 .ps2{left:-16px;bottom:-16px;width:18%}
+}
+@media (max-width:600px){
+  .hero .copy{padding:104px 20px 36px}
+  .facts{grid-template-columns:1fr 1fr;justify-content:start;gap:12px 20px;font-size:16px}
+  .hero .pic{margin-inline:16px;height:300px}
+  .photo3{margin:6px 30px 54px 28px}
+  .photo3 img{aspect-ratio:1/1;border-radius:22px}
+  .hero .cta{gap:10px;margin-top:30px;flex-wrap:nowrap}.hero .cta .btn{padding-inline:18px;font-size:15px;white-space:nowrap}
+  .hero .copy p{margin-top:20px}.facts{margin-top:32px}
+}
 </style>
 </head>
 <body>
@@ -495,6 +545,7 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
       <img class="slide on" src="assets/img/hero-lernen.jpg" alt="Visualisierung: eine Erzieherin liest Kindern im Gruppenraum vor" data-i18n-alt="alt.hero1" width="1122" height="1402" style="object-position:62% 40%">
       <img class="slide" src="assets/img/hero-haus.jpg" alt="Visualisierung: das Haus der Kita Kiehlufer mit bunten Fassadenkacheln und Spielgarten" data-i18n-alt="alt.hero" width="1448" height="1086" style="object-position:20% 50%">
       <span class="tag" data-i18n="tag.ai">KI-Visualisierung</span>
+      <div class="hero-dots" role="group" aria-label="Hero-Variante wählen"><button type="button" class="hn-dot on" data-slide="0" aria-label="Hero 1: Vorlesen" aria-pressed="true"></button><button type="button" class="hn-dot" data-slide="1" aria-label="Hero 2: Unser Haus" aria-pressed="false"></button><button type="button" class="hn-dot" data-slide="2" aria-label="Hero 3: Ohne Welle" aria-pressed="false"></button></div>
       <svg class="wave" viewBox="0 0 120 960" preserveAspectRatio="none" aria-hidden="true"><path d="M120 0 H70 C20 70 96 150 74 250 C52 350 4 400 22 520 C40 640 100 690 84 800 C74 870 40 910 50 960 H120Z"/></svg>
     </div>
     <div class="copy">
@@ -505,35 +556,22 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
         <a class="btn" href="#kita" data-i18n="cta.explore">Kita entdecken</a>
         <a class="btn outline" href="#warteliste" data-i18n="cta.short">Platz vormerken</a>
       </div>
-      <div class="hero-nav" role="group" aria-label="Hero-Variante wählen">
-        <button type="button" class="hn-arrow" id="hprev" aria-label="Vorherige Variante">‹</button>
-        <button type="button" class="hn-dot on" data-slide="0" aria-label="Hero 1: Vorlesen" aria-pressed="true"></button>
-        <button type="button" class="hn-dot" data-slide="1" aria-label="Hero 2: Unser Haus" aria-pressed="false"></button>
-        <button type="button" class="hn-dot" data-slide="2" aria-label="Hero 3: Fotocollage" aria-pressed="false"></button>
-        <button type="button" class="hn-arrow" id="hnext" aria-label="Nächste Variante">›</button>
-      </div>
+      <ul class="facts">
+        <li><i style="background:var(--coral)"></i><b>188</b> <span data-i18n="f.kids">Kinder</span></li>
+        <li><i style="background:#3A5FCD"></i><b>16</b> <span data-i18n="c.rooms">Gruppenräume</span></li>
+        <li><i style="background:#2E9B63"></i><b>3</b> <span data-i18n="c.floors">Etagen</span></li>
+        <li><i style="background:#F5A8C8"></i><b>0–6</b> <span data-i18n="f.age">Jahre</span></li>
+      </ul>
       <img class="deco hero-rb" src="assets/wc/rainbow.webp" alt="" width="760" height="514" data-par=".05">
-      <img class="deco hero-animal animal creep" src="assets/animals/turtle.png" alt="" width="399" height="270">
     </div>
-    <div class="collage" aria-label="Fotos aus dem Kita-Alltag">
-      <img class="bg cloud cl-cloud" src="assets/wc/cloud-multi.webp" alt="" loading="lazy">
-      <figure class="print p1" data-p="0"><img src="assets/img/hero-lernen.jpg" alt="Visualisierung: Vorlesen im Gruppenraum" data-i18n-alt="alt.hero1" width="1122" height="1402" loading="lazy"><figcaption data-i18n="hc.1">Vorlesen</figcaption></figure>
-      <figure class="print p2" data-p="1"><img src="assets/img/spielen.jpg" alt="Visualisierung: Kinder spielen im Garten" data-i18n-alt="alt.play" width="1448" height="1086" loading="lazy"><figcaption data-i18n="hc.2">Draußen spielen</figcaption></figure>
-      <figure class="print p3" data-p="2"><img src="assets/img/essen.jpg" alt="Visualisierung: Kinder ernten Gemüse" data-i18n-alt="alt.t" width="1448" height="1086" loading="lazy"><figcaption data-i18n="hc.3">Ernten & probieren</figcaption></figure>
-      <img class="deco animal floaty cl-bf" src="assets/animals/butterfly-blue.png" alt="" width="491" height="495" loading="lazy">
-      <span class="tag cl-tag" data-i18n="tag.ai">KI-Visualisierung</span>
-    </div>
+    <figure class="photo3">
+      <i class="ps ps1"></i><i class="ps ps2"></i>
+      <img src="assets/img/hero-lernen.jpg" alt="Visualisierung: eine Erzieherin liest Kindern im Gruppenraum vor" data-i18n-alt="alt.hero1" width="1122" height="1402" loading="lazy">
+      <span class="tag" data-i18n="tag.ai">KI-Visualisierung</span>
+      <div class="hero-dots" role="group" aria-label="Hero-Variante wählen"><button type="button" class="hn-dot on" data-slide="0" aria-label="Hero 1: Vorlesen" aria-pressed="true"></button><button type="button" class="hn-dot" data-slide="1" aria-label="Hero 2: Unser Haus" aria-pressed="false"></button><button type="button" class="hn-dot" data-slide="2" aria-label="Hero 3: Ohne Welle" aria-pressed="false"></button></div>
+    </figure>
   </div>
 </section>
-<div class="counters">
-  <div class="wrap">
-    <div class="cnt"><div class="blk" data-blk="o" style="--r:-5deg"><b data-count="188">188</b></div><span data-i18n="f.kids">Kinder</span></div>
-    <div class="cnt"><div class="blk" data-blk="b" style="--r:4deg"><b data-count="16">16</b></div><span data-i18n="c.rooms">Gruppenräume</span></div>
-    <div class="cnt"><div class="blk" data-blk="g" style="--r:-3deg"><b data-count="3">3</b></div><span data-i18n="c.floors">Etagen</span></div>
-    <div class="cnt"><div class="blk ink" data-blk="p" style="--r:6deg"><b>0–6</b></div><span data-i18n="f.age">Jahre</span></div>
-  </div>
-</div>
-
 <section id="kita" class="center">
   <img class="deco animal floaty hide-m" style="left:4%;top:70px;width:clamp(90px,9vw,130px)" src="assets/animals/butterfly.png" alt="" width="491" height="495">
   <div class="wrap">
@@ -831,8 +869,7 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
 
   // ---------- squares across the page ----------
   const heroCopy=q('.hero .copy');
-  addSq(heroCopy,[{c:'y',s:28,left:'-74px',top:'49%'},{c:'s',s:20,left:'-30px',top:'57%'},{c:'g',s:22,left:'-66px',top:'66%',cls:'hide-s'},{c:'o',s:32,left:'-26px',top:'75%',cls:'hide-s'},{c:'p',s:24,left:'-78px',top:'85%',cls:'hide-s'},
-    {c:'l',s:24,right:'9%',top:'17%'},{c:'y',s:18,right:'22%',top:'11%',cls:'hide-s'},{c:'b',s:26,right:'4%',top:'42%',cls:'hide-s'},{c:'m',s:20,left:'46%',bottom:'9%',cls:'hide-s'},{c:'o',s:16,left:'30%',bottom:'5%'}]);
+  addSq(heroCopy,[{c:'s',s:22,left:'-58px',top:'60%',cls:'hide-s'},{c:'b',s:26,right:'4%',top:'44%',cls:'hide-s'}]);
   addSq(q('#kita'),[{c:'y',s:30,right:'7%',top:'90px'},{c:'s',s:20,right:'11%',top:'150px'},{c:'o',s:24,left:'12%',top:'330px',cls:'hide-s'},{c:'g',s:18,right:'4%',top:'46%',cls:'hide-s'}]);
   addSq(q('#paedagogik'),[{c:'l',s:26,left:'44%',top:'8%',cls:'hide-s'},{c:'y',s:18,left:'40%',bottom:'12%',cls:'hide-s'}]);
   addSq(q('#bau'),[{c:'o',s:30,left:'6%',top:'150px'},{c:'b',s:20,left:'10%',top:'210px',cls:'hide-s'},{c:'y',s:26,right:'7%',top:'170px'},{c:'p',s:20,right:'4%',top:'52%',cls:'hide-s'},{c:'g',s:24,left:'3%',top:'60%',cls:'hide-s'}]);
@@ -987,17 +1024,17 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
 
   // hero slides
   const hero=document.querySelector('.hero'),slides=[...document.querySelectorAll('.hero .slide')],hdots=[...document.querySelectorAll('.hn-dot')];let cur=0;
-  function show(i){const n=hdots.length;const nx=(i+n)%n;const layoutChange=(nx===2)!==(cur===2);cur=nx;
+  function show(i){const n=3;const nx=(i+n)%n;const layoutChange=(nx===2)!==(cur===2);cur=nx;
     if(layoutChange){hero.classList.remove('swap');void hero.offsetWidth;hero.classList.add('swap');}
     hero.classList.toggle('v3',cur===2);if(cur<2)slides.forEach((s,k)=>s.classList.toggle('on',k===cur));
-    hdots.forEach((d,k)=>{d.classList.toggle('on',k===cur);d.setAttribute('aria-pressed',k===cur)});}
+    hdots.forEach(d=>{const k=+d.dataset.slide;d.classList.toggle('on',k===cur);d.setAttribute('aria-pressed',k===cur)});}
   if(location.hash==='#hero-3')show(2);else if(location.hash==='#hero-2')show(1);
   // collage: click a print to bring it to the front
   let zTop=5;document.querySelectorAll('.print').forEach(f=>f.addEventListener('click',()=>{f.style.zIndex=++zTop;f.classList.remove('pick');void f.offsetWidth;f.classList.add('pick');}));
   // tabs
   const tabs=[...document.querySelectorAll('.tab')];function selTab(t){tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}
   tabs.forEach((t,i)=>{t.addEventListener('click',()=>selTab(t));t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];selTab(n);n.focus();}});});
-  hdots.forEach(d=>d.addEventListener('click',()=>show(+d.dataset.slide)));document.getElementById('hprev').addEventListener('click',()=>show(cur-1));document.getElementById('hnext').addEventListener('click',()=>show(cur+1));
+  hdots.forEach(d=>d.addEventListener('click',()=>show(+d.dataset.slide)));
 
   // header, drawer, to-top
   const top=document.getElementById('top'),tt=document.getElementById('totop');
