@@ -95,12 +95,12 @@ header.main .wrap{display:flex;align-items:center;gap:24px;padding-block:14px;ma
 .hero .pic .tag{position:absolute;left:20px;bottom:22px;z-index:3}
 .hero .wave{position:absolute;top:0;right:-2px;height:100%;width:120px}
 .hero .wave path{fill:var(--beige)}
-.hero .copy{position:relative;display:flex;flex-direction:column;justify-content:center;padding:150px clamp(20px,5.55vw,80px) 120px clamp(30px,6vw,90px)}
+.hero .copy{position:relative;display:flex;flex-direction:column;justify-content:center;padding:150px clamp(20px,5.55vw,80px) 170px clamp(30px,6vw,90px)}
 .hero .copy p{font-weight:400;font-size:clamp(19px,1.67vw,24px);line-height:1.4;max-width:430px;margin-top:28px}
 .hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
 .hero-conf{left:-96px;top:70px;width:170px}
 .hero-rb{right:-40px;bottom:-30px;width:clamp(180px,19vw,270px)}
-.hero-animal{right:clamp(190px,23vw,340px);bottom:0;width:clamp(130px,12vw,175px)}
+.hero-animal{right:clamp(70px,8vw,130px);bottom:clamp(150px,14vw,205px);width:clamp(130px,12vw,175px)}
 .spark{position:absolute;width:38px;right:-34px;top:-8px}
 
 /* feature cards */
@@ -328,6 +328,94 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
 @media (max-width:900px){.bg.cloud{opacity:.4}.hide-s{display:none!important}}
 @media (prefers-reduced-motion:reduce){.scr path{stroke-dashoffset:0}.brush{clip-path:none}.ribbon path{stroke-dashoffset:0}}
 
+/* hero nav (outside the photo) */
+.hero{position:relative}
+.hero-nav{left:22%;margin-left:0}
+.hero.v3 .hero-nav{left:75%;bottom:104px}
+/* hero 3: collage, no wave */
+.collage{display:none;position:relative}
+.hero.v3 .grid{grid-template-columns:50% 50%}
+.hero.v3 .pic{display:none}
+.hero.v3 .collage{display:block;min-height:min(900px,92vh)}
+.hero.v3 .copy{padding-left:max(clamp(20px,5.55vw,80px),env(safe-area-inset-left,0px));padding-right:20px}
+.hero.v3 .hero-rb,.hero.v3 .hero-scr{display:none}
+.hero.v3 .hero-animal{right:6%}
+.hero.swap .grid>*{animation:swapin .7s ease both}
+@keyframes swapin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.print{position:absolute;margin:0;background:#fff;padding:10px 10px 0;border-radius:18px;box-shadow:0 18px 40px rgba(47,43,43,.16);cursor:pointer;rotate:var(--rot);transition:rotate .45s cubic-bezier(.3,1.6,.5,1),translate .45s cubic-bezier(.3,1.6,.5,1),box-shadow .3s}
+.print img{width:100%;border-radius:12px;object-fit:cover;pointer-events:none}
+.print figcaption{font:500 17px var(--display);color:var(--ink);text-align:center;padding:10px 0 12px}
+.print:hover{rotate:calc(var(--rot) * .3);translate:0 -8px;box-shadow:0 26px 50px rgba(47,43,43,.2)}
+.print.pick{animation:pick .55s cubic-bezier(.3,1.5,.5,1)}
+@keyframes pick{0%{scale:1}40%{scale:1.06}100%{scale:1}}
+.print .tape{position:absolute;top:-16px;left:50%;width:46px;height:30px;translate:-50% 0;rotate:-6deg;opacity:.92}
+.p1{--rot:-6deg;left:4%;top:11%;width:38%;z-index:3}.p1 img{aspect-ratio:4/5}
+.p2{--rot:4deg;right:3%;top:8%;width:52%;z-index:2}.p2 img{aspect-ratio:4/3}
+.p3{--rot:-2deg;left:22%;bottom:19%;width:50%;z-index:4}.p3 img{aspect-ratio:4/3}
+.cl-cloud{left:10%;top:18%;width:80%;opacity:.5}
+.cl-bf{right:6%;bottom:10%;width:90px}
+.cl-tag{position:absolute;right:20px;bottom:110px;z-index:6}
+.hero-scr{right:4%;top:84px;width:160px}
+.scr.long path{stroke-width:7;transition-duration:2s}
+/* stats blocks sit on the hero edge */
+.counters{background:none;padding:0;margin:-78px 0 0;position:relative;z-index:6}
+.counters .wrap{max-width:900px}
+.counters span{font-size:clamp(17px,1.5vw,21px)}
+/* "So leben wir Kita" */
+.tabs{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:44px}
+.tab{position:relative;border:0;background:none;padding:16px 26px;font:600 17px var(--display);color:#fff;cursor:pointer;opacity:.55;transition:opacity .25s,scale .3s cubic-bezier(.3,1.6,.5,1),rotate .3s}
+.tab span{position:relative}
+.tab .pq,.hi .pq,.tcard .pq{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.tab:nth-child(1){rotate:-2deg}.tab:nth-child(2){rotate:1.5deg}.tab:nth-child(3){rotate:-1deg}
+.tab[aria-selected="true"]{opacity:1;scale:1.06}
+.tab:hover{opacity:.9}
+.panel{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,70px);align-items:center;margin-top:50px;text-align:left}
+.panel h3{font:600 clamp(26px,2.6vw,36px)/1.15 var(--display);margin-bottom:18px}
+.panel p{font-size:18px;margin-top:12px}
+.panel:not([hidden]){animation:swapin .5s ease both}
+#pan-3{display:block}
+#pan-3[hidden]{display:none!important}
+.ptext-wide{max-width:780px;margin:0 auto!important;text-align:center;font-size:20px!important}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:34px}
+.trio .feat p{font-size:17px}
+.hellos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:10px}
+.hi{position:relative;aspect-ratio:1;display:grid;place-content:center;text-align:center;color:#fff;font:600 clamp(20px,2vw,28px)/1.1 var(--display);transition:rotate .35s cubic-bezier(.3,1.6,.5,1),scale .35s cubic-bezier(.3,1.6,.5,1);cursor:default}
+.hi:nth-child(odd){rotate:-4deg}.hi:nth-child(even){rotate:3deg}
+.hi:hover{rotate:0deg;scale:1.08}
+.hi b{font-weight:600}
+.hi small{position:relative;display:block;font:500 12px var(--body);letter-spacing:.06em;margin-top:6px;opacity:.9}
+.hi>*:not(.pq){position:relative}
+.hi[data-c="y"],.hi[data-c="p"],.hi[data-c="l"]{color:var(--ink)}
+.pframe{position:relative}
+/* transitions */
+.trans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
+.tcard{position:relative;display:grid;grid-template-columns:70px 1fr;gap:16px;align-items:center;padding:24px 26px;text-align:left}
+.tcard .pq{opacity:.28}
+.tcard>*:not(.pq){position:relative}
+.tcard img,.tcard>svg{width:70px;height:auto}
+.tcard h3{font-size:20px}
+.tcard p{font-size:16px;margin-top:4px}
+.tcard .more{margin-top:8px}
+.tcard:nth-child(2){rotate:.8deg}.tcard:nth-child(1){rotate:-.6deg}
+@media (max-width:1180px){.hero-nav{left:22%}}
+@media (max-width:900px){
+  .hero-nav,.hero.v3 .hero-nav{left:50%;right:auto;translate:-50% 0;bottom:70px}
+  .hero.v3 .grid{grid-template-columns:1fr}
+  .hero.v3 .collage{min-height:500px;order:2;margin:0 10px 70px}
+  .hero.v3 .copy{padding:120px 20px 40px}
+  .p1{width:46%;top:4%}.p2{width:56%;top:2%}.p3{width:62%;left:18%;bottom:14%}
+  .print figcaption{font-size:14px;padding:6px 0 8px}
+  .hero.v3 .hero-animal{display:none}
+  .cl-tag{bottom:auto;top:-14px;right:10px}
+  .hero.v3 .hero-nav{bottom:70px}
+  .p3{bottom:16%}
+  .counters{margin-top:-50px}
+  .panel,.trio,.trans{grid-template-columns:1fr}
+  .hellos{grid-template-columns:repeat(3,1fr);gap:12px}
+  .hero-scr{display:none}
+}
+@media (max-width:600px){.tab{padding:13px 18px;font-size:15px}.blk{width:110px}}
+
 /* responsive */
 @media (max-width:1180px){
   .nav a:not(.btn){display:none}
@@ -348,13 +436,14 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
   .hero-nav{left:auto;right:14px;translate:none;margin:0}
   .hero .pic{border-radius:40px 40px 0 0;overflow:hidden;margin-inline:20px}
   .hero .copy{padding:120px 20px 150px}
+  .hero .pic{margin-bottom:0}
   .hero-conf{left:auto;right:10px;top:84px;width:110px}
   .hero-rb{width:250px;right:-40px;bottom:-50px}
-  .hero-animal{right:150px;width:110px}
+  .hero-animal{right:150px;width:110px;bottom:40px}
   .split,.settle{grid-template-columns:1fr}
   .split .frame{order:2}
   .cards,.shapes,.fam{grid-template-columns:1fr 1fr}
-  .counters .wrap{grid-template-columns:1fr 1fr;row-gap:40px}
+  .counters .wrap{grid-template-columns:1fr 1fr;row-gap:30px}
   footer .cols{grid-template-columns:1fr 1fr}
   .settle .left{min-height:320px}
   .hide-m{display:none}
@@ -409,16 +498,10 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
       <img class="slide on" src="assets/img/hero-lernen.jpg" alt="Visualisierung: eine Erzieherin liest Kindern im Gruppenraum vor" data-i18n-alt="alt.hero1" width="1122" height="1402" style="object-position:62% 40%">
       <img class="slide" src="assets/img/hero-haus.jpg" alt="Visualisierung: das Haus der Kita Kiehlufer mit bunten Fassadenkacheln und Spielgarten" data-i18n-alt="alt.hero" width="1448" height="1086" style="object-position:20% 50%">
       <span class="tag" data-i18n="tag.ai">KI-Visualisierung</span>
-      <div class="hero-nav" role="group" aria-label="Bild wählen">
-        <button type="button" class="hn-arrow" id="hprev" aria-label="Vorheriges Bild">‹</button>
-        <button type="button" class="hn-dot on" data-slide="0" aria-label="Bild 1: Vorlesen" aria-pressed="true"></button>
-        <button type="button" class="hn-dot" data-slide="1" aria-label="Bild 2: Unser Haus" aria-pressed="false"></button>
-        <button type="button" class="hn-arrow" id="hnext" aria-label="Nächstes Bild">›</button>
-      </div>
       <svg class="wave" viewBox="0 0 120 960" preserveAspectRatio="none" aria-hidden="true"><path d="M120 0 H70 C20 70 96 150 74 250 C52 350 4 400 22 520 C40 640 100 690 84 800 C74 870 40 910 50 960 H120Z"/></svg>
     </div>
     <div class="copy">
-      <div class="scr hero-conf" data-scr="a"></div>
+      <div class="scr long hero-scr" data-scr="L1"></div>
       <h1><span data-i18n="hero.h1c">Wo kleine Entdecker groß werden!</span></h1>
       <p data-i18n="hero.p2">Im Harzer Kiez in Neukölln entsteht eine neue Kita für 188 Kinder. Vielfältig, mehrsprachig und mittendrin. Eröffnung im Herbst 2027.</p>
       <div class="cta">
@@ -428,8 +511,31 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
       <img class="deco hero-rb" src="assets/wc/rainbow.webp" alt="" width="760" height="514" data-par=".05">
       <img class="deco hero-animal animal creep" src="assets/animals/turtle.png" alt="" width="399" height="270">
     </div>
+    <div class="collage" aria-label="Fotos aus dem Kita-Alltag">
+      <img class="bg cloud cl-cloud" src="assets/wc/cloud-multi.webp" alt="" loading="lazy">
+      <figure class="print p1" data-p="0"><img src="assets/img/hero-lernen.jpg" alt="Visualisierung: Vorlesen im Gruppenraum" data-i18n-alt="alt.hero1" width="1122" height="1402" loading="lazy"><figcaption data-i18n="hc.1">Vorlesen</figcaption></figure>
+      <figure class="print p2" data-p="1"><img src="assets/img/spielen.jpg" alt="Visualisierung: Kinder spielen im Garten" data-i18n-alt="alt.play" width="1448" height="1086" loading="lazy"><figcaption data-i18n="hc.2">Draußen spielen</figcaption></figure>
+      <figure class="print p3" data-p="2"><img src="assets/img/essen.jpg" alt="Visualisierung: Kinder ernten Gemüse" data-i18n-alt="alt.t" width="1448" height="1086" loading="lazy"><figcaption data-i18n="hc.3">Ernten & probieren</figcaption></figure>
+      <img class="deco animal floaty cl-bf" src="assets/animals/butterfly-blue.png" alt="" width="491" height="495" loading="lazy">
+      <span class="tag cl-tag" data-i18n="tag.ai">KI-Visualisierung</span>
+    </div>
+  </div>
+  <div class="hero-nav" role="group" aria-label="Hero-Variante wählen">
+    <button type="button" class="hn-arrow" id="hprev" aria-label="Vorherige Variante">‹</button>
+    <button type="button" class="hn-dot on" data-slide="0" aria-label="Hero 1: Vorlesen" aria-pressed="true"></button>
+    <button type="button" class="hn-dot" data-slide="1" aria-label="Hero 2: Unser Haus" aria-pressed="false"></button>
+    <button type="button" class="hn-dot" data-slide="2" aria-label="Hero 3: Fotocollage" aria-pressed="false"></button>
+    <button type="button" class="hn-arrow" id="hnext" aria-label="Nächste Variante">›</button>
   </div>
 </section>
+<div class="counters">
+  <div class="wrap">
+    <div class="cnt"><div class="blk" data-blk="o" style="--r:-5deg"><b data-count="188">188</b></div><span data-i18n="f.kids">Kinder</span></div>
+    <div class="cnt"><div class="blk" data-blk="b" style="--r:4deg"><b data-count="16">16</b></div><span data-i18n="c.rooms">Gruppenräume</span></div>
+    <div class="cnt"><div class="blk" data-blk="g" style="--r:-3deg"><b data-count="3">3</b></div><span data-i18n="c.floors">Etagen</span></div>
+    <div class="cnt"><div class="blk ink" data-blk="p" style="--r:6deg"><b>0–6</b></div><span data-i18n="f.age">Jahre</span></div>
+  </div>
+</div>
 
 <section id="kita" class="center">
   <img class="deco animal floaty hide-m" style="left:4%;top:70px;width:clamp(90px,9vw,130px)" src="assets/animals/butterfly.png" alt="" width="491" height="495">
@@ -451,7 +557,8 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
     <div>
       <span class="pill" data-i18n="p.eyebrow">Pädagogik</span>
       <h2 data-i18n="p.h2b">Lernen durch Spielen!</h2>
-      <p class="lede" data-i18n="p.p">Grundlage unserer Arbeit ist der Situationsansatz nach dem Berliner Bildungsprogramm. Wir greifen die Lebenssituationen, Fragen und Interessen der Kinder auf. Kinder haben von Anfang an eigene Rechte und werden als aktive Mitgestalter*innen ernst genommen.</p>
+      <p class="lede" data-i18n="p.p3">Grundlage unserer Arbeit ist der Situationsansatz nach dem Berliner Bildungsprogramm. Wir greifen die Lebenssituationen, Erfahrungen, Interessen und Fragen der Kinder auf und entwickeln daraus vielfältige Lern- und Erfahrungsangebote.</p>
+      <p class="lede" data-i18n="p.p4">Kinder haben von Anfang an eigene Rechte und werden als aktive Mitgestalter*innen ihres Lernens ernst genommen. Unsere pädagogischen Fachkräfte begleiten sie aufmerksam und gestalten Bildungsprozesse gemeinsam mit ihnen. Eine vertrauensvolle Elternpartnerschaft ist uns dabei besonders wichtig.</p>
       <div style="margin-top:34px"><a class="btn" href="#alltag" data-i18n="cta.day">Kita-Alltag ansehen</a></div>
     </div>
     <div class="frame">
@@ -463,9 +570,54 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
   </div>
 </section>
 
+
+<section id="sowir" class="center">
+  <div class="scr long hide-m" style="left:3%;top:70px;width:200px" data-scr="L3"></div>
+  <img class="deco animal floaty hide-m" style="right:5%;top:90px;width:96px;--dur:6s" src="assets/animals/butterfly.png" alt="" width="491" height="495" loading="lazy" data-par=".15">
+  <div class="wrap">
+    <span class="pill" data-i18n="s.eyebrow">So leben wir Kita</span>
+    <h2><span data-i18n="p.m1">Inklusiv.</span> <span data-i18n="p.m2">Offen.</span> <span data-i18n="p.m3">Nachhaltig.</span></h2>
+    <div class="tabs" role="tablist" aria-label="Pädagogische Schwerpunkte">
+      <button type="button" role="tab" id="tab-1" aria-controls="pan-1" aria-selected="true" class="tab" data-c="o"><span data-i18n="p.c1">Vielfalt & Mehrsprachigkeit</span></button>
+      <button type="button" role="tab" id="tab-2" aria-controls="pan-2" aria-selected="false" class="tab" data-c="g" tabindex="-1"><span data-i18n="p.c2">Nachhaltige Bildung</span></button>
+      <button type="button" role="tab" id="tab-3" aria-controls="pan-3" aria-selected="false" class="tab" data-c="b" tabindex="-1"><span data-i18n="s.t3">Kreativität, Musik & Bewegung</span></button>
+    </div>
+    <div class="panel" role="tabpanel" id="pan-1" aria-labelledby="tab-1">
+      <div class="ptext">
+        <h3 data-i18n="s.1h">Familiensprachen bleiben nicht an der Kita-Tür.</h3>
+        <p data-i18n="s.1a">Ihre Sprachen, Kulturen und Identitäten sind ein wertvoller Teil unseres Kita-Alltags. Wir greifen Wörter aus den Familiensprachen auf, singen Lieder, entdecken mehrsprachige Bücher und feiern Feste aus verschiedenen Kulturen. Eltern sind herzlich eingeladen, ihre Sprachen und Traditionen einzubringen.</p>
+        <p data-i18n="s.1b">Mehrsprachigkeit ist auch in unserem Team fest verankert. Unterschiedliche Sprachkenntnisse, zum Beispiel Türkisch und Arabisch, werden aktiv in den Kita-Alltag eingebunden. So erleben Kinder Vielfalt als Stärke und erfahren, dass sie mit ihrer ganzen Persönlichkeit willkommen sind.</p>
+      </div>
+      <div class="hellos" aria-label="Hallo in vielen Sprachen">
+        <span class="hi" data-c="o" lang="de"><b>Hallo</b><small>Deutsch</small></span>
+        <span class="hi" data-c="b" lang="tr"><b>Merhaba</b><small>Türkçe</small></span>
+        <span class="hi" data-c="g" lang="ar"><b>مرحبا</b><small>العربية</small></span>
+        <span class="hi" data-c="y" lang="en"><b>Hello</b><small>English</small></span>
+        <span class="hi" data-c="p" lang="pl"><b>Cześć</b><small>Polski</small></span>
+        <span class="hi" data-c="l" lang="uk"><b>Привіт</b><small>Українська</small></span>
+      </div>
+    </div>
+    <div class="panel" role="tabpanel" id="pan-2" aria-labelledby="tab-2" hidden>
+      <div class="ptext">
+        <h3 data-i18n="s.2h">Nachhaltigkeit, die man anfassen kann.</h3>
+        <p data-i18n="s.2a">Auf unserer großen Dachterrasse pflanzen, pflegen und ernten wir gemeinsam mit den Kindern. Durch Experimente mit Wasser und Energie sowie Gespräche über Konsum und einen bewussten Umgang mit Lebensmitteln entdecken sie, wie Nachhaltigkeit im Alltag gelebt werden kann. Die Kinder bringen ihre eigenen Ideen und Fragen ein und gestalten Projekte aktiv mit.</p>
+        <p data-i18n="s.2b">Wir achten auf Recycling, einen bewussten Umgang mit Wasser und Energie sowie die sorgfältige Auswahl unserer Materialien. Dabei sind wir pädagogischen Fachkräfte Vorbilder: Wir leben Nachhaltigkeit vor und fördern Wertschätzung, Verantwortungsbewusstsein und einen respektvollen Umgang mit Mensch, Tier und Natur.</p>
+      </div>
+      <div class="frame pframe"><div class="img"><img src="assets/img/bau-terrasse.jpg" alt="Die Dachterrasse im Bau" data-i18n-alt="alt.t2" loading="lazy" width="1500" height="1125"></div><span class="tag" data-i18n="tag.real">Echte Bauaufnahme</span><img class="deco animal rock" style="right:-6%;bottom:-12%;width:30%" src="assets/animals/bee.png" alt="" width="384" height="361" loading="lazy"></div>
+    </div>
+    <div class="panel" role="tabpanel" id="pan-3" aria-labelledby="tab-3" hidden>
+      <p class="ptext-wide" data-i18n="s.3a">Diese Bildungsbereiche sind ganzheitlich und interdisziplinär ausgerichtet. Durch bereichsübergreifende Lernerfahrungen eröffnen wir den Kindern vielfältige Möglichkeiten, sich kreativ auszudrücken, mit allen Sinnen zu lernen und ihre Fähigkeiten ganzheitlich zu entwickeln.</p>
+      <div class="trio">
+        <div class="feat"><svg viewBox="0 0 44 44" fill="none" stroke="var(--coral)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6c11 0 16 8 14 15s-9 3-12 7c-3 6-16 6-18-4S10 6 22 6Z"/><circle cx="15" cy="16" r="1.8"/><circle cx="23" cy="12" r="1.8"/><circle cx="30" cy="17" r="1.8"/></svg><h3 data-i18n="s.k">Kunst</h3><p data-i18n="s.ka">Kinder drücken ihre Eindrücke und Fantasien kreativ aus. Im Kunst- und Werkraum experimentieren sie mit vielfältigen Materialien und entdecken beim Malen zu Musik neue Ausdrucksmöglichkeiten. Projekte mit Kunstpädagog*innen und der Mandarie Kunstschule erweitern ihre Erfahrungen.</p></div>
+        <div class="feat"><svg viewBox="0 0 44 44" fill="none" stroke="var(--lilac)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="33" r="5"/><circle cx="33" cy="29" r="5"/><path d="M18 33V9l20-4v24M18 16l20-4"/></svg><h3 data-i18n="s.m">Musik & Theater</h3><p data-i18n="s.ma">Im Musikraum entdecken die Kinder Instrumente, Klänge und Rhythmen. Im Theaterspiel erfinden sie Geschichten, schlüpfen in Rollen und entwickeln kleine Aufführungen. Die Bühne im benachbarten Gemeindezentrum bietet Raum, diese vor Publikum zu zeigen und Selbstvertrauen zu gewinnen.</p></div>
+        <div class="feat"><svg viewBox="0 0 44 44" fill="none" stroke="var(--teal)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="8" r="4"/><path d="M22 13l-2 10 7 11M20 23l-7 11M21 16l-9-2M21 16l10-4"/></svg><h3 data-i18n="s.b">Bewegung</h3><p data-i18n="s.ba">Kinder erschließen sich ihre Welt durch Bewegung und sammeln wichtige Körper- und Sinneserfahrungen. Im Bewegungsraum und Spielgarten entwickeln sie Motorik, Körperwahrnehmung und Selbstvertrauen. Tanzspiele und gemeinsame Aktivitäten stärken das Miteinander und die Freude an Bewegung.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="band center" id="bau" style="margin-top:clamp(40px,6vw,90px)">
   <svg class="curve" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V30C1100 110 760 -20 420 40 250 70 100 84 0 70Z"/></svg>
-  <div class="scr hide-m" style="left:4%;top:38%;width:110px;" data-scr="b"></div>
   <img class="deco animal floaty hide-m" style="right:5%;top:300px;width:92px;--dur:7s" src="assets/animals/butterfly-blue.png" alt="" width="491" height="495" loading="lazy" data-par=".2">
   <div class="wrap" style="padding-top:clamp(30px,4vw,60px)">
     <span class="pill" data-i18n="b.eyebrow">Vom Bau zur Kita</span>
@@ -492,7 +644,7 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
     </div>
     <div>
       <span class="pill" data-i18n="q.eyebrow">Fragen & Antworten</span>
-      <h2><span data-i18n="p.m1">Inklusiv.</span> <span data-i18n="p.m2">Offen.</span> <span data-i18n="p.m3">Nachhaltig.</span></h2>
+      <h2 data-i18n="q.h2">Was Eltern uns oft fragen.</h2>
       <div class="faq">
         <details><summary data-i18n="q.1">Wann öffnet die Kita?</summary><p data-i18n="q.1a">Wir planen die Eröffnung für Herbst 2027. Über die Warteliste halten wir Sie auf dem Laufenden.</p></details>
         <details><summary data-i18n="q.2">Was kostet ein Platz?</summary><p data-i18n="q.2a">In Berlin ist die Kita-Betreuung beitragsfrei. Sie brauchen einen Kita-Gutschein, den Sie beim Jugendamt beantragen. Für das Essen kann ein kleiner Eigenanteil anfallen.</p></details>
@@ -505,7 +657,7 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
 </section>
 
 <section id="raeume" class="center" style="padding-top:30px">
-  <div class="scr hide-m" style="right:5%;top:20px;width:120px;" data-scr="c"></div>
+  <div class="scr long hide-m" style="right:3%;top:30px;width:210px" data-scr="L2"></div>
   <div class="wrap">
     <span class="pill" data-i18n="r.eyebrow">Unsere Räume</span>
     <h2 data-i18n="r.h2b">Räume für kleine Entdecker</h2>
@@ -523,7 +675,7 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
   <img class="deco animal floaty hide-m" style="right:4%;top:-50px;width:110px;--dur:6s" src="assets/animals/dragonfly.png" alt="" width="278" height="283" loading="lazy">
   <div class="wrap">
     <img class="deco hide-m" style="left:-40px;top:-70px;width:300px;rotate:-8deg" src="assets/wc/rainbow-sweep.webp" alt="" width="700" height="339" loading="lazy" data-par=".12">
-    <div class="center" style="margin-bottom:54px"><span class="pill" data-i18n="e.eyebrow">Eingewöhnung</span><h2 data-i18n="e.h2">Behutsam ankommen.</h2></div>
+    <div class="center" style="margin-bottom:54px"><span class="pill" data-i18n="e.eyebrow2">Eingewöhnung & Übergänge</span><h2 data-i18n="e.h2">Behutsam ankommen.</h2><p class="lede" data-i18n="e.lede">Wir gestalten die Eingewöhnung behutsam und orientieren uns am individuellen Tempo und den Bedürfnissen des Kindes und seiner Familie.</p></div>
     <div class="settle">
       <div class="left"><img src="assets/img/vis-retreat.jpg" alt="Visualisierung einer gemütlichen Ecke" loading="lazy" width="1184" height="896"></div>
       <div class="right">
@@ -531,13 +683,18 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
         <blockquote data-i18n="fa.q2">Je sicherer das Kind ist, desto mutiger wird es, Beziehungen zu anderen Menschen einzugehen.</blockquote>
         <cite><span data-i18n="fa.qs2">In Anlehnung an Gerald Hüther</span><small data-i18n="fa.qs3">Neurobiologe und Autor</small></cite>
         <ol class="steps">
-          <li><div><b data-i18n="e.1">Kinderprofil</b><span data-i18n="e.1s">Wir lernen Sprachen, Vorlieben und Gewohnheiten Ihres Kindes kennen.</span></div></li>
+          <li><div><b data-i18n="e.1">Kinderprofil</b><span data-i18n="e.1l">Schon vor der Eingewöhnung lernen wir die Sprachen, einige Wörter in der Familiensprache, Vorlieben und Gewohnheiten beim Schlafen und Essen kennen. So schaffen wir vertraute Anknüpfungspunkte.</span></div></li>
           <li><div><b data-i18n="e.2">Kennenlernen</b><span data-i18n="e.2s">Ihr Kind entdeckt Raum und Bezugsperson, Sie sind dabei.</span></div></li>
           <li><div><b data-i18n="e.3">Kurze Zeiten allein</b><span data-i18n="e.3p">Erste kleine Abschiede, so lange wie es sich gut anfühlt.</span></div></li>
           <li><div><b data-i18n="e.4">Ganz angekommen</b><span data-i18n="e.4p">Ihr Kind fühlt sich sicher und bleibt den ganzen Tag.</span></div></li>
         </ol>
         <img class="deco animal creep" style="right:-28px;bottom:-46px;width:150px" src="assets/animals/turtle.png" alt="" width="399" height="270" loading="lazy">
       </div>
+    </div>
+    <div class="trans">
+      <div class="tcard" data-c="l"><img src="assets/animals/butterfly-violet.png" alt="" width="491" height="495" loading="lazy"><div><h3 data-i18n="e.n">Neue Entwicklungsphasen</h3><p data-i18n="e.na">Wir begleiten die Kinder beim Wechsel in einen neuen Altersbereich.</p></div></div>
+      <div class="tcard" data-c="y"><img src="assets/animals/dragonfly.png" alt="" width="278" height="283" loading="lazy"><div><h3 data-i18n="e.s">Gut vorbereitet auf die Schule</h3><p data-i18n="e.sa">Wir gestalten den Übergang von der Kita in die Schule bewusst und stärken die Kinder für ihren nächsten Lebensabschnitt.</p></div></div>
+      <div class="tcard" data-c="s"><svg viewBox="0 0 44 44" fill="none" stroke="var(--sky)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 5l14 5v10c0 9-6 15-14 19C14 35 8 29 8 20V10Z"/><path d="M22 28c-6-4-8-8-6-11 2-2 4-1 6 1 2-2 4-3 6-1 2 3 0 7-6 11Z"/></svg><div><h3 data-i18n="e.k">Kinderschutz</h3><p data-i18n="e.ka">Schutz und Wohl der Kinder stehen im Mittelpunkt unserer pädagogischen Arbeit und sind fester Bestandteil unseres Alltags.</p><a class="more" href="#fragen" style="--c:var(--sky)"><span data-i18n="e.kl2">Kinderschutz-Konzept (folgt)</span><i></i></a></div></div>
     </div>
   </div>
 </section>
@@ -560,16 +717,6 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
   </div>
 </section>
 
-<div class="counters">
-  <svg class="cedge" viewBox="0 0 1440 50" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50V22C240 0 420 40 720 20S1220 0 1440 26V50Z"/></svg>
-  <div class="wrap">
-    <div class="cnt"><div class="blk" data-blk="o" style="--r:-5deg"><b data-count="188">188</b></div><span data-i18n="f.kids">Kinder</span></div>
-    <div class="cnt"><div class="blk" data-blk="b" style="--r:4deg"><b data-count="16">16</b></div><span data-i18n="c.rooms">Gruppenräume</span></div>
-    <div class="cnt"><div class="blk" data-blk="g" style="--r:-3deg"><b data-count="3">3</b></div><span data-i18n="c.floors">Etagen</span></div>
-    <div class="cnt"><div class="blk ink" data-blk="p" style="--r:6deg"><b>0–6</b></div><span data-i18n="f.age">Jahre</span></div>
-  </div>
-  <svg class="cedge bot" viewBox="0 0 1440 50" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0V26C260 50 520 6 760 28S1240 46 1440 20V0Z"/></svg>
-</div>
 
 <section id="essen">
   <div class="wrap split">
@@ -603,7 +750,6 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
 </section>
 
 <section id="warteliste" class="center" style="padding-top:20px">
-  <div class="scr hide-m" style="left:5%;top:30px;width:120px;" data-scr="d"></div>
   <img class="deco animal floaty hide-m" style="right:6%;top:60px;width:120px" src="assets/animals/butterfly.png" alt="" width="491" height="495" loading="lazy">
   <div class="wrap">
     <span class="pill" data-i18n="l.eyebrow">Warteliste</span>
@@ -708,20 +854,18 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
     for(let i=0;i<n;i++){const el=makeSq({c:KEYS[Math.floor(R()*KEYS.length)],s:Math.round(22+R()*24),left:((i+.5)/n*100+(R()-.5)*3).toFixed(1)+'%',r:Math.round((R()-.5)*30),par:0,spin:0});if(i%2&&n>10)el.classList.add('hide-s');s.appendChild(el);}}
   const counters=q('.counters');
   document.querySelectorAll('[data-blk]').forEach((b,i)=>{const R=rng(300+i*13);b.insertAdjacentHTML('afterbegin','<svg viewBox="0 0 100 100" aria-hidden="true"><path d="'+quad(R)+'" fill="'+PAL[b.dataset.blk]+'"/></svg>');b.addEventListener('click',()=>{b.classList.remove('hop');void b.offsetWidth;b.classList.add('hop');});});
-  addSq(counters,[{c:'y',s:22,left:'7%',top:'24%'},{c:'s',s:16,left:'11%',top:'62%',cls:'hide-s'},{c:'l',s:20,left:'30%',top:'10%',cls:'hide-s'},{c:'o',s:16,left:'53%',top:'80%'},{c:'m',s:22,right:'28%',top:'8%',cls:'hide-s'},{c:'t',s:16,right:'9%',top:'30%'},{c:'b',s:22,right:'5%',top:'70%',cls:'hide-s'}]);
+  // paper-square backs for tabs, greetings and transition cards
+  document.querySelectorAll('.tab,.hi,.tcard').forEach((el,i)=>{const R=rng(500+i*17);el.insertAdjacentHTML('afterbegin','<svg class="pq" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="'+quad(R)+'" fill="'+PAL[el.dataset.c]+'"/></svg>');});
+  // tape squares on the collage prints
+  document.querySelectorAll('.print').forEach((f,i)=>{const R=rng(700+i*11);f.insertAdjacentHTML('beforeend','<svg class="tape" viewBox="0 0 100 100" aria-hidden="true"><path d="'+quad(R)+'" fill="'+PAL[['y','p','m'][i]]+'"/></svg>');});
 
-  // ---------- composed scribble clusters ----------
-  const C={pk:'#ED688D',tl:'#09B1AB',sk:'#47B1E4',co:'#F06D4F',li:'#D9B3E0',ye:'#FECD3E'};
-  const P={curl:'M2 26C4 8 24 0 28 12C31 23 14 28 14 16C14 4 34-2 46 8',arc:'M0 2C8 18 26 18 34 2',wave:'M0 10C6-3 15-3 21 10S36 23 42 10',dash:'M0 0L13 15',tri:'M2 20L13 2L24 20Z',six:'M20 2C7 4 0 15 7 24C13 31 25 26 22 17C20 10 11 11 10 17',hook:'M0 0C2 13 13 18 22 12',zig:'M0 12L9 0L18 12L27 0',dot:'M0 0L.1 .1'};
-  const CL={
-    a:{vb:'0 0 150 250',items:[['curl','pk',70,8,0],['arc','tl',8,58,-28],['dash','co',64,74,0],['wave','sk',92,60,62],['hook','li',104,112,10],['tri','ye',58,128,14],['six','tl',14,150,0],['dash','pk',112,166,70],['wave','sk',60,206,-12]]},
-    b:{vb:'0 0 140 150',items:[['wave','pk',18,6,-8],['tri','tl',96,26,-20],['hook','li',52,44,0],['six','co',8,70,0],['zig','ye',70,84,6],['arc','sk',44,124,8]]},
-    c:{vb:'0 0 140 150',items:[['tri','sk',36,6,24],['dash','tl',92,10,0],['curl','li',22,48,-6],['arc','ye',86,64,30],['six','pk',10,104,0],['wave','co',66,118,-14]]},
-    d:{vb:'0 0 140 150',items:[['zig','co',14,10,-10],['hook','tl',88,6,0],['curl','ye',40,50,8],['dash','sk',10,74,40],['tri','pk',96,96,-12],['wave','li',30,124,4]]}
-  };
-  document.querySelectorAll('[data-scr]').forEach((el,ci)=>{const c=CL[el.dataset.scr];const R=rng(ci*31+3);let h='<svg viewBox="'+c.vb+'" aria-hidden="true">';
-    c.items.forEach(([p,col,x,y,rot],i)=>{h+='<g transform="translate('+x+' '+y+') rotate('+rot+')"><g style="--dur:'+(3+R()*2.5).toFixed(1)+'s;--del:'+(-R()*4).toFixed(1)+'s;--r:'+((R()>.5?1:-1)*(8+R()*10)).toFixed(0)+'deg;--tx:'+((R()-.5)*8).toFixed(0)+'px;--ty:'+(-3-R()*6).toFixed(0)+'px"><path pathLength="1" d="'+P[p]+'" stroke="'+C[col]+'" style="--dl:'+(i*.09).toFixed(2)+'s"/></g></g>';});
-    el.innerHTML=h+'</svg>';});
+  // ---------- long single-line scribbles (mood board style) ----------
+  const LS={
+    L1:{vb:'0 0 200 200',d:'M8 40C50 10 110 20 120 60C130 100 80 115 72 85C64 55 120 40 150 70C180 100 170 150 192 190',c:'#4F57B8'},
+    L2:{vb:'0 0 200 200',d:'M6 150C30 90 70 80 80 120C90 160 40 160 52 120C64 80 120 60 140 100C160 140 120 160 126 128C132 96 170 70 196 40',c:'#F26A3B'},
+    L3:{vb:'0 0 200 200',d:'M10 30C60 10 80 60 50 70C20 80 40 30 90 40C140 50 120 100 90 104C60 108 90 60 140 76C180 88 170 140 190 170',c:'#D47CC0'}};
+  document.querySelectorAll('[data-scr]').forEach(el=>{const c=LS[el.dataset.scr];if(!c)return;
+    el.innerHTML='<svg viewBox="'+c.vb+'" aria-hidden="true"><g><g style="--dur:8s;--r:5deg;--tx:3px;--ty:-6px"><path pathLength="1" d="'+c.d+'" stroke="'+c.c+'"/></g></g></svg>';});
 
   // ---------- big ribbons that draw themselves while you scroll ----------
   function ribbon(parent,style,vb,d,col,w){const s=document.createElementNS('http://www.w3.org/2000/svg','svg');s.setAttribute('viewBox',vb);s.setAttribute('class','ribbon hide-s');s.setAttribute('aria-hidden','true');s.style.cssText=style;s.innerHTML='<path pathLength="1" d="'+d+'" stroke="'+col+'" stroke-width="'+w+'"/>';parent.prepend(s);return s;}
@@ -823,6 +967,8 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
    "fa.q2":"Çocuk kendini ne kadar güvende hissederse, başkalarıyla ilişki kurmakta o kadar cesur olur.","fa.qs2":"Gerald Hüther'den esinlenerek","fa.qs3":"Nörobiyolog ve yazar","e.1s":"Çocuğunuzun dillerini, sevdiklerini ve alışkanlıklarını tanırız.","e.2s":"Çocuğunuz odayı ve bakım veren kişiyi keşfeder, siz de yanındasınız.",
    "c.rooms":"grup odası","c.floors":"kat","n.h2b":"Sağlıklı yemek ve katılmak.","n.p2":"Dengeli ve çocuklara uygun yemekler sunuyoruz. Tüm yemekler helaldir, her zaman vejetaryen seçenek bulunur. Büyük çatı terasında çocuklarla birlikte eker, bakar ve hasat ederiz.","alt.t":"Görselleştirme: çocuklar çatı terasında sebze topluyor ve hazırlıyor",
    "fa.h2b":"Sizinle birlikte","fa.p":"Ebeveynler ve aileler en önemli eğitim ortaklarımızdır.","fa.1s":"Görüşmeler ve veli toplantıları","fa.1p2":"Gelişim görüşmeleri, veli toplantıları ve getirip alırken günlük temas.","fa.2s":"Diller ve gelenekler","fa.2p2":"Dillerinizi, şarkılarınızı ve bayramlarınızı getirin. Anlaşılır ve kültüre duyarlı iletişim kurarız.","fa.3s":"Söz sahibi olun","ft.h3":"Aileler için","ft.hours":"Pzt–Cum 7:30–17:00"});
+  Object.assign(T.en,{"hc.1": "Story time", "hc.2": "Playing outside", "hc.3": "Harvest & taste", "p.p3": "Our work is based on the situational approach of the Berlin education programme. We take up children's life situations, experiences, interests and questions and develop varied learning opportunities from them.", "p.p4": "From the very start, children have rights of their own and are taken seriously as active co-creators of their learning. Our educators accompany them attentively and shape learning together with them. A trusting partnership with parents is especially important to us.", "s.eyebrow": "How we live Kita", "s.t3": "Creativity, music & movement", "s.1h": "Family languages don't stay at the Kita door.", "s.1a": "Children's languages, cultures and identities are a valuable part of everyday Kita life. We pick up words from family languages, sing songs, discover multilingual books and celebrate festivals from different cultures. Parents are warmly invited to bring in their languages and traditions.", "s.1b": "Multilingualism is also firmly rooted in our team. Different language skills, for example Turkish and Arabic, are actively part of everyday life. This way children experience diversity as a strength and learn that they are welcome with their whole personality.", "s.2h": "Sustainability you can touch.", "s.2a": "On our big roof terrace we plant, care for and harvest together with the children. Through experiments with water and energy and conversations about consumption and food, they discover how sustainability can be lived every day. Children bring in their own ideas and questions and actively shape projects.", "s.2b": "We pay attention to recycling, careful use of water and energy and a thoughtful choice of materials. As educators we are role models: we live sustainability and encourage appreciation, responsibility and respect for people, animals and nature.", "alt.t2": "The roof terrace under construction", "s.3a": "These areas of learning are holistic and interdisciplinary. Learning across areas gives children many ways to express themselves creatively, learn with all their senses and develop their abilities as a whole.", "s.k": "Art", "s.ka": "Children express their impressions and fantasies creatively. In the art and workshop room they experiment with many materials and discover new ways of expression while painting to music. Projects with art educators and the Mandarie art school widen their experience.", "s.m": "Music & theatre", "s.ma": "In the music room children discover instruments, sounds and rhythms. In theatre play they invent stories, slip into roles and develop small performances. The stage in the neighbouring community centre gives them room to show these to an audience and gain confidence.", "s.b": "Movement", "s.ba": "Children explore their world through movement and gain important physical and sensory experiences. In the movement room and play garden they develop motor skills, body awareness and confidence. Dance games and shared activities strengthen community and the joy of moving.", "q.h2": "What parents often ask us.", "e.eyebrow2": "Settling in & transitions", "e.lede": "We design settling in gently and follow the individual pace and needs of each child and their family.", "e.1l": "Even before settling in, we get to know your child's languages, a few words in the family language, likes and sleeping and eating habits. That way we create familiar points of connection.", "e.n": "New stages of development", "e.na": "We accompany children when they move to a new age group.", "e.s": "Well prepared for school", "e.sa": "We shape the move from Kita to school consciously and strengthen children for the next stage of life.", "e.ka": "Children's safety and wellbeing are at the heart of our educational work and a firm part of every day.", "e.kl2": "Child protection concept (coming soon)"});
+  Object.assign(T.tr,{"hc.1": "Kitap saati", "hc.2": "Dışarıda oyun", "hc.3": "Hasat ve tadım", "p.p3": "Çalışmamızın temeli, Berlin Eğitim Programı'na göre durum yaklaşımıdır. Çocukların yaşam durumlarını, deneyimlerini, ilgi alanlarını ve sorularını ele alır, bunlardan çeşitli öğrenme fırsatları geliştiririz.", "p.p4": "Çocukların en başından kendi hakları vardır ve öğrenmelerinin aktif katılımcıları olarak ciddiye alınırlar. Eğitimcilerimiz onlara dikkatle eşlik eder ve öğrenme süreçlerini onlarla birlikte şekillendirir. Ebeveynlerle güvene dayalı bir ortaklık bizim için özellikle önemlidir.", "s.eyebrow": "Kreşi böyle yaşıyoruz", "s.t3": "Yaratıcılık, müzik ve hareket", "s.1h": "Aile dilleri kreşin kapısında kalmaz.", "s.1a": "Çocukların dilleri, kültürleri ve kimlikleri kreş yaşamının değerli bir parçasıdır. Aile dillerinden kelimeler öğrenir, şarkılar söyler, çok dilli kitaplar keşfeder ve farklı kültürlerin bayramlarını kutlarız. Ebeveynler dillerini ve geleneklerini getirmeye içtenlikle davetlidir.", "s.1b": "Çok dillilik ekibimizde de sağlam bir yer tutar. Örneğin Türkçe ve Arapça gibi farklı dil becerileri günlük yaşama aktif olarak katılır. Böylece çocuklar çeşitliliği bir güç olarak yaşar ve tüm kişilikleriyle hoş karşılandıklarını deneyimler.", "s.2h": "Dokunulabilen sürdürülebilirlik.", "s.2a": "Büyük çatı terasımızda çocuklarla birlikte eker, bakar ve hasat ederiz. Su ve enerjiyle deneyler, tüketim ve gıda üzerine sohbetlerle sürdürülebilirliğin günlük hayatta nasıl yaşanabileceğini keşfederler. Çocuklar kendi fikirlerini ve sorularını getirir, projeleri aktif olarak şekillendirir.", "s.2b": "Geri dönüşüme, su ve enerjinin bilinçli kullanımına ve malzemelerin özenli seçimine dikkat ederiz. Eğitimciler olarak örnek oluruz: sürdürülebilirliği yaşar; insana, hayvana ve doğaya karşı takdir, sorumluluk ve saygıyı destekleriz.", "alt.t2": "Yapım aşamasındaki çatı terası", "s.3a": "Bu öğrenme alanları bütünsel ve disiplinlerarasıdır. Alanlar arası öğrenme deneyimleri, çocuklara kendilerini yaratıcı biçimde ifade etme, tüm duyularıyla öğrenme ve yeteneklerini bütünsel olarak geliştirme olanakları sunar.", "s.k": "Sanat", "s.ka": "Çocuklar izlenimlerini ve hayallerini yaratıcı biçimde ifade eder. Sanat ve atölye odasında çeşitli malzemelerle deneyler yapar, müzik eşliğinde resim yaparken yeni ifade yolları keşfederler. Sanat eğitmenleri ve Mandarie Sanat Okulu ile projeler deneyimlerini zenginleştirir.", "s.m": "Müzik ve tiyatro", "s.ma": "Müzik odasında çocuklar enstrümanları, sesleri ve ritimleri keşfeder. Tiyatro oyununda hikâyeler uydurur, rollere girer ve küçük gösteriler hazırlarlar. Komşu toplum merkezindeki sahne, bunları seyirciye sunmak ve özgüven kazanmak için alan sağlar.", "s.b": "Hareket", "s.ba": "Çocuklar dünyalarını hareketle keşfeder ve önemli bedensel ve duyusal deneyimler kazanır. Hareket odasında ve oyun bahçesinde motor becerilerini, beden farkındalıklarını ve özgüvenlerini geliştirirler. Dans oyunları ve ortak etkinlikler birlikteliği ve hareket sevincini güçlendirir.", "q.h2": "Ebeveynlerin bize sık sorduğu sorular.", "e.eyebrow2": "Uyum süreci ve geçişler", "e.lede": "Uyum sürecini usulca planlar, her çocuğun ve ailesinin kendi temposuna ve ihtiyaçlarına göre hareket ederiz.", "e.1l": "Uyum sürecinden önce çocuğunuzun dillerini, aile dilinden birkaç kelimeyi, sevdiklerini, uyku ve yemek alışkanlıklarını öğreniriz. Böylece tanıdık bağlantı noktaları oluştururuz.", "e.n": "Yeni gelişim dönemleri", "e.na": "Yeni bir yaş grubuna geçerken çocuklara eşlik ederiz.", "e.s": "Okula iyi hazırlık", "e.sa": "Kreşten okula geçişi bilinçli olarak şekillendirir, çocukları hayatlarının bir sonraki dönemi için güçlendiririz.", "e.ka": "Çocukların güvenliği ve iyiliği pedagojik çalışmamızın merkezindedir ve günlük hayatımızın sabit bir parçasıdır.", "e.kl2": "Çocuk koruma konsepti (yakında)"});
   const DE={},DEalt={},DEph={};
   document.querySelectorAll('[data-i18n]').forEach(el=>{if(!(el.dataset.i18n in DE))DE[el.dataset.i18n]=el.innerHTML;});
   document.querySelectorAll('[data-i18n-alt]').forEach(el=>{DEalt[el.dataset.i18nAlt]=el.alt;});
@@ -841,8 +987,17 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
   document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 
   // hero slides
-  const slides=[...document.querySelectorAll('.hero .slide')],hdots=[...document.querySelectorAll('.hn-dot')];let cur=0;
-  function show(i){cur=(i+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('on',k===cur));hdots.forEach((d,k)=>{d.classList.toggle('on',k===cur);d.setAttribute('aria-pressed',k===cur)});}
+  const hero=document.querySelector('.hero'),slides=[...document.querySelectorAll('.hero .slide')],hdots=[...document.querySelectorAll('.hn-dot')];let cur=0;
+  function show(i){const n=hdots.length;const nx=(i+n)%n;const layoutChange=(nx===2)!==(cur===2);cur=nx;
+    if(layoutChange){hero.classList.remove('swap');void hero.offsetWidth;hero.classList.add('swap');}
+    hero.classList.toggle('v3',cur===2);if(cur<2)slides.forEach((s,k)=>s.classList.toggle('on',k===cur));
+    hdots.forEach((d,k)=>{d.classList.toggle('on',k===cur);d.setAttribute('aria-pressed',k===cur)});}
+  if(location.hash==='#hero-3')show(2);else if(location.hash==='#hero-2')show(1);
+  // collage: click a print to bring it to the front
+  let zTop=5;document.querySelectorAll('.print').forEach(f=>f.addEventListener('click',()=>{f.style.zIndex=++zTop;f.classList.remove('pick');void f.offsetWidth;f.classList.add('pick');}));
+  // tabs
+  const tabs=[...document.querySelectorAll('.tab')];function selTab(t){tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}
+  tabs.forEach((t,i)=>{t.addEventListener('click',()=>selTab(t));t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];selTab(n);n.focus();}});});
   hdots.forEach(d=>d.addEventListener('click',()=>show(+d.dataset.slide)));document.getElementById('hprev').addEventListener('click',()=>show(cur-1));document.getElementById('hnext').addEventListener('click',()=>show(cur+1));
 
   // header, drawer, to-top
