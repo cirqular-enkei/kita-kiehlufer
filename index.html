@@ -513,6 +513,28 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
   .hero.v3 .facts.below{padding-top:14px}
 }
 @media (max-width:600px){.facts.below{padding:22px 20px 36px}.hero .pic{border-radius:22px}}
+
+/* Nov 15 evening: rainbows, button hover, footer */
+:root{--berry:#AD4590}
+.hero-rb{right:-84px;top:96px;bottom:auto;width:clamp(240px,23.5vw,350px)}
+.rbw{pointer-events:auto;cursor:pointer;transform-origin:50% 100%;transition:scale .45s cubic-bezier(.3,1.6,.5,1),rotate .45s cubic-bezier(.3,1.6,.5,1)}
+.rbw-load{animation:rbpaint 1.5s .35s cubic-bezier(.5,0,.2,1) both,rbfloat 7s 1.9s ease-in-out infinite}
+.rbw-scroll{clip-path:inset(0 100% 0 0)}
+.rbw-scroll.in{animation:rbpaint 1.6s cubic-bezier(.5,0,.2,1) both,rbfloat 8s 1.6s ease-in-out infinite}
+@keyframes rbpaint{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 -10% 0 0)}}
+@keyframes rbfloat{0%,100%{translate:0 0}50%{translate:0 -9px}}
+.rbw:hover{scale:1.07;rotate:-3deg}
+.rbw.wig{animation:rbwig .8s cubic-bezier(.3,1.5,.5,1)}
+@keyframes rbwig{0%{rotate:0deg;scale:1}25%{rotate:-7deg;scale:1.1}55%{rotate:5deg;scale:1.04}80%{rotate:-2deg}100%{rotate:0deg;scale:1}}
+.rb2{left:-50px;top:26px;width:clamp(320px,34vw,500px);rotate:-6deg;transform-origin:20% 80%}
+.rb2:hover{rotate:-10deg}
+.wl-bf{left:max(1%,calc(50% - 610px));top:400px;width:118px}
+.nav a.btn.lilac:hover{background:var(--ink);color:#fff}
+footer{background:var(--berry)}
+footer .arc path{fill:var(--berry)}
+@media (max-width:1180px){.wl-bf{display:none}}
+@media (max-width:900px){.hero-rb{display:none}}
+@media (prefers-reduced-motion:reduce){.rbw-scroll{clip-path:none}}
 </style>
 </head>
 <body>
@@ -558,7 +580,6 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
       <svg class="wave" viewBox="0 0 120 960" preserveAspectRatio="none" aria-hidden="true"><path d="M120 0 H70 C20 70 96 150 74 250 C52 350 4 400 22 520 C40 640 100 690 84 800 C74 870 40 910 50 960 H120Z"/></svg>
     </div>
     <div class="copy">
-      <div class="scr long hero-scr" data-scr="L1"></div>
       <h1><span data-i18n="hero.h1c">Wo kleine Entdecker groß werden!</span></h1>
       <p data-i18n="hero.p2">Im Harzer Kiez in Neukölln entsteht eine neue Kita für 188 Kinder. Vielfältig, mehrsprachig und mittendrin. Eröffnung im Herbst 2027.</p>
       <div class="cta">
@@ -571,7 +592,7 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
         <li><i style="background:#2E9B63"></i><b>3</b> <span data-i18n="c.floors">Etagen</span></li>
         <li><i style="background:#F5A8C8"></i><b>0–6</b> <span data-i18n="f.age">Jahre</span></li>
       </ul>
-      <img class="deco hero-rb" src="assets/wc/rainbow.webp" alt="" width="760" height="514" data-par=".05">
+      <img class="deco hero-rb rbw rbw-load" src="assets/wc/rainbow.webp" alt="" width="760" height="514">
     </div>
     <figure class="photo3">
       <i class="ps ps1"></i><i class="ps ps2"></i>
@@ -724,9 +745,10 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
 </section>
 
 <section class="rosy" id="eingewoehnung">
+  <img class="deco rbw rbw-scroll rb2 hide-m" src="assets/wc/rainbow-sweep.webp" alt="" width="700" height="339" loading="lazy">
   <img class="deco animal floaty hide-m" style="right:4%;top:-50px;width:110px;--dur:6s" src="assets/animals/dragonfly.png" alt="" width="278" height="283" loading="lazy">
   <div class="wrap">
-    <img class="deco hide-m" style="left:-40px;top:-70px;width:300px;rotate:-8deg" src="assets/wc/rainbow-sweep.webp" alt="" width="700" height="339" loading="lazy" data-par=".12">
+    
     <div class="center" style="margin-bottom:54px"><span class="pill" data-i18n="e.eyebrow2">Eingewöhnung & Übergänge</span><h2 data-i18n="e.h2">Behutsam ankommen.</h2><p class="lede" data-i18n="e.lede">Wir gestalten die Eingewöhnung behutsam und orientieren uns am individuellen Tempo und den Bedürfnissen des Kindes und seiner Familie.</p></div>
     <div class="settle">
       <div class="left"><img src="assets/img/vis-retreat.jpg" alt="Visualisierung einer gemütlichen Ecke" loading="lazy" width="1184" height="896"></div>
@@ -802,7 +824,7 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
 </section>
 
 <section id="warteliste" class="center" style="padding-top:20px">
-  <img class="deco animal floaty hide-m" style="right:6%;top:60px;width:120px" src="assets/animals/butterfly.png" alt="" width="491" height="495" loading="lazy">
+  <img class="deco animal floaty hide-m wl-bf" src="assets/animals/butterfly.png" alt="" width="491" height="495" loading="lazy">
   <div class="wrap">
     <span class="pill" data-i18n="l.eyebrow">Warteliste</span>
     <h2 data-i18n="l.h2">Ein Platz zum Großwerden.</h2>
@@ -884,13 +906,13 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
 
   // ---------- squares across the page ----------
   const heroCopy=q('.hero .copy');
-  addSq(heroCopy,[{c:'s',s:22,left:'-58px',top:'60%',cls:'hide-s'},{c:'b',s:26,right:'4%',top:'44%',cls:'hide-s'}]);
+  addSq(heroCopy,[{c:'y',s:26,left:'-72px',top:'31%',cls:'hide-s'},{c:'s',s:22,left:'-58px',top:'60%',cls:'hide-s'},{c:'o',s:24,left:'-30px',top:'83%',cls:'hide-s'},{c:'p',s:22,left:'60%',top:'12%',cls:'hide-s'},{c:'b',s:26,right:'5%',top:'60%',cls:'hide-s'},{c:'g',s:22,right:'11%',top:'74%',cls:'hide-s'}]);
   addSq(q('#kita'),[{c:'y',s:30,right:'7%',top:'90px'},{c:'s',s:20,right:'11%',top:'150px'},{c:'o',s:24,left:'12%',top:'330px',cls:'hide-s'},{c:'g',s:18,right:'4%',top:'46%',cls:'hide-s'}]);
   addSq(q('#paedagogik'),[{c:'l',s:26,left:'44%',top:'8%',cls:'hide-s'},{c:'y',s:18,left:'40%',bottom:'12%',cls:'hide-s'}]);
   addSq(q('#bau'),[{c:'o',s:30,left:'6%',top:'150px'},{c:'b',s:20,left:'10%',top:'210px',cls:'hide-s'},{c:'y',s:26,right:'7%',top:'170px'},{c:'p',s:20,right:'4%',top:'52%',cls:'hide-s'},{c:'g',s:24,left:'3%',top:'60%',cls:'hide-s'}]);
   addSq(q('#fragen'),[{c:'g',s:24,right:'5%',top:'60px'},{c:'o',s:18,right:'9%',top:'110px',cls:'hide-s'}]);
   addSq(q('#raeume'),[{c:'p',s:28,left:'8%',top:'70px'},{c:'b',s:18,left:'12%',top:'130px',cls:'hide-s'},{c:'y',s:22,right:'14%',top:'44%',cls:'hide-s'}]);
-  addSq(q('#eingewoehnung'),[{c:'y',s:26,left:'6%',top:'70px'},{c:'s',s:20,left:'10%',top:'126px',cls:'hide-s'},{c:'o',s:22,right:'12%',top:'110px',cls:'hide-s'}]);
+  addSq(q('#eingewoehnung'),[{c:'y',s:26,left:'30%',top:'46px'},{c:'s',s:20,right:'24%',top:'60px',cls:'hide-s'},{c:'o',s:22,right:'12%',top:'110px',cls:'hide-s'}]);
   addSq(q('#alltag'),[{c:'l',s:26,right:'9%',top:'80px'},{c:'g',s:18,left:'9%',top:'120px'}]);
   addSq(q('#familien'),[{c:'s',s:24,left:'10%',top:'40px'},{c:'o',s:18,right:'12%',top:'90px'}]);
   addSq(q('footer'),[{c:'y',s:26,left:'8%',top:'-10px'},{c:'o',s:20,left:'30%',top:'-34px'},{c:'s',s:24,right:'24%',top:'-30px'},{c:'m',s:18,right:'7%',top:'0px'},{c:'#fff',s:16,left:'52%',top:'-44px'}]);
@@ -1039,6 +1061,11 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
   }
   document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 
+
+  // rainbows: paint in when scrolled to, wiggle when touched
+  document.querySelectorAll('.rbw').forEach(r=>{r.addEventListener('click',()=>{r.classList.remove('wig');void r.offsetWidth;r.classList.add('wig');});r.addEventListener('animationend',e=>{if(e.animationName==='rbwig')r.classList.remove('wig');});});
+  if('IntersectionObserver' in window){const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.rbw-scroll').forEach(r=>r.classList.add('in'));ro.unobserve(e.target);}}),{threshold:.12});document.querySelectorAll('.rbw-scroll').forEach(r=>ro.observe(r.parentElement));}
+  else document.querySelectorAll('.rbw-scroll').forEach(r=>r.classList.add('in'));
   // hero slides
   const hero=document.querySelector('.hero'),slides=[...document.querySelectorAll('.hero .slide')],hdots=[...document.querySelectorAll('.hn-dot')];let cur=0;
   function show(i){const n=3;const nx=(i+n)%n;const layoutChange=(nx===2)!==(cur===2);cur=nx;
