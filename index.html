@@ -516,7 +516,7 @@ section>.wrap,.counters>.wrap{position:relative;z-index:2}
 
 /* Nov 15 evening: rainbows, button hover, footer */
 :root{--berry:#AD4590}
-.hero-rb{right:-84px;top:96px;bottom:auto;width:clamp(240px,23.5vw,350px)}
+.hero-rb{right:-52px;bottom:-34px;top:auto;width:clamp(170px,18vw,260px)}
 .rbw{pointer-events:auto;cursor:pointer;transform-origin:50% 100%;transition:scale .45s cubic-bezier(.3,1.6,.5,1),rotate .45s cubic-bezier(.3,1.6,.5,1)}
 .rbw-load{animation:rbpaint 1.5s .35s cubic-bezier(.5,0,.2,1) both,rbfloat 7s 1.9s ease-in-out infinite}
 .rbw-scroll{clip-path:inset(0 100% 0 0)}
@@ -580,6 +580,7 @@ footer .arc path{fill:var(--berry)}
       <svg class="wave" viewBox="0 0 120 960" preserveAspectRatio="none" aria-hidden="true"><path d="M120 0 H70 C20 70 96 150 74 250 C52 350 4 400 22 520 C40 640 100 690 84 800 C74 870 40 910 50 960 H120Z"/></svg>
     </div>
     <div class="copy">
+      <div class="scr long hero-scr" data-scr="L1"></div>
       <h1><span data-i18n="hero.h1c">Wo kleine Entdecker groß werden!</span></h1>
       <p data-i18n="hero.p2">Im Harzer Kiez in Neukölln entsteht eine neue Kita für 188 Kinder. Vielfältig, mehrsprachig und mittendrin. Eröffnung im Herbst 2027.</p>
       <div class="cta">
@@ -804,7 +805,7 @@ footer .arc path{fill:var(--berry)}
       <img class="blob" style="right:-8%;top:-14%;" src="assets/wc/swirl-blue.webp" alt="" loading="lazy" data-par=".1">
       <div class="img"><img src="assets/img/essen.jpg" alt="Visualisierung: Kinder ernten und bereiten Gemüse auf der Dachterrasse zu" data-i18n-alt="alt.t" loading="lazy" width="1448" height="1086"></div>
       <span class="tag" data-i18n="tag.ai">KI-Visualisierung</span>
-      <img class="deco animal floaty" style="left:-7%;top:-16%;width:26%" src="assets/animals/bee.png" alt="" width="384" height="361" loading="lazy">
+      <img class="deco animal floaty" style="left:-8%;bottom:-13%;width:26%" src="assets/animals/bee.png" alt="" width="384" height="361" loading="lazy">
     </div>
   </div>
 </section>
@@ -906,7 +907,7 @@ footer .arc path{fill:var(--berry)}
 
   // ---------- squares across the page ----------
   const heroCopy=q('.hero .copy');
-  addSq(heroCopy,[{c:'y',s:26,left:'-72px',top:'31%',cls:'hide-s'},{c:'s',s:22,left:'-58px',top:'60%',cls:'hide-s'},{c:'o',s:24,left:'-30px',top:'83%',cls:'hide-s'},{c:'p',s:22,left:'60%',top:'12%',cls:'hide-s'},{c:'b',s:26,right:'5%',top:'60%',cls:'hide-s'},{c:'g',s:22,right:'11%',top:'74%',cls:'hide-s'}]);
+  addSq(heroCopy,[{c:'s',s:22,left:'-58px',top:'60%',cls:'hide-s'},{c:'b',s:26,right:'4%',top:'44%',cls:'hide-s'},{c:'y',s:26,left:'-72px',top:'31%',cls:'hide-s'},{c:'o',s:24,left:'-30px',top:'83%',cls:'hide-s'},{c:'g',s:22,right:'9%',top:'66%',cls:'hide-s'}]);
   addSq(q('#kita'),[{c:'y',s:30,right:'7%',top:'90px'},{c:'s',s:20,right:'11%',top:'150px'},{c:'o',s:24,left:'12%',top:'330px',cls:'hide-s'},{c:'g',s:18,right:'4%',top:'46%',cls:'hide-s'}]);
   addSq(q('#paedagogik'),[{c:'l',s:26,left:'44%',top:'8%',cls:'hide-s'},{c:'y',s:18,left:'40%',bottom:'12%',cls:'hide-s'}]);
   addSq(q('#bau'),[{c:'o',s:30,left:'6%',top:'150px'},{c:'b',s:20,left:'10%',top:'210px',cls:'hide-s'},{c:'y',s:26,right:'7%',top:'170px'},{c:'p',s:20,right:'4%',top:'52%',cls:'hide-s'},{c:'g',s:24,left:'3%',top:'60%',cls:'hide-s'}]);
